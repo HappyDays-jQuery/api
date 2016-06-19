@@ -7,6 +7,7 @@ use Koriym\Now\NowInject;
 use Koriym\QueryLocator\QueryLocatorInject;
 use Ray\AuraSqlModule\AuraSqlInject;
 use Psr\Log\LoggerInterface;
+use JqueryTokyo\Api\Annotation\BenchMark;
 
 class Task extends ResourceObject
 {
@@ -29,6 +30,9 @@ class Task extends ResourceObject
         return $this;
     }
 
+    /**
+     * @BenchMark
+     */
     public function onPost($title)
     {
         $params = [
