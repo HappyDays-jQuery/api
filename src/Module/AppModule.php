@@ -9,6 +9,8 @@ use Psr\Log\LoggerInterface;
 use Ray\Di\Scope;
 use JqueryTokyo\Api\Annotation\BenchMark;
 use JqueryTokyo\Api\Interceptor\BenchMarker;
+use JqueryTokyo\Api\Annotation\Session;
+use JqueryTokyo\Api\Interceptor\SessionInterceptor;
 
 class AppModule extends AbstractModule
 {
@@ -36,6 +38,11 @@ class AppModule extends AbstractModule
             $this->matcher->any(),
             $this->matcher->annotatedWith(BenchMark::class),
             [BenchMarker::class]
+        );
+        $this->bindInterceptor(
+            $this->matcher->any(),
+            $this->matcher->annotatedWith(Session::class),
+            [SessionInterceptor::class]
         );
     }
 }
