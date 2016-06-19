@@ -3,7 +3,6 @@
 namespace JqueryTokyo\Api\Resource\App;
 
 use BEAR\Resource\ResourceObject;
-use JqueryTokyo\Api\Module\SessionInject;
 use Koriym\Now\NowInject;
 use Koriym\QueryLocator\QueryLocatorInject;
 use Ray\AuraSqlModule\AuraSqlInject;
@@ -17,11 +16,15 @@ class Task extends ResourceObject
     use NowInject;
     use QueryLocatorInject;
 
+    /**
+     * Task constructor.
+     * @param LoggerInterface $logger
+     */
     public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
-    
+
     public function onGet($id = null)
     {
         $this->body = $id ?
@@ -33,6 +36,8 @@ class Task extends ResourceObject
 
     /**
      * @BenchMark
+     * @param $title
+     * @return $this
      */
     public function onPost($title)
     {
@@ -50,6 +55,10 @@ class Task extends ResourceObject
         return $this;
     }
 
+    /**
+     * @param $id
+     * @return $this
+     */
     public function onPatch($id)
     {
         $params = [

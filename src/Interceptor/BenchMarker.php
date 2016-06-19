@@ -23,7 +23,7 @@ class BenchMarker implements MethodInterceptor
         $msg = sprintf(
             "%s: %s",
             $invocation->getMethod()->getName(),
-            (int) $time * 1000 . 'ms'
+            (int)$time * 1000 . 'ms'
         );
         $this->logger->info($msg);
 
