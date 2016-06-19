@@ -4,6 +4,7 @@ namespace JqueryTokyo\Api\Module;
 
 use josegonzalez\Dotenv\Loader as Dotenv;
 use Koriym\DbAppPackage\DbAppPackage;
+use Ray\AuraSessionModule\AuraSessionModule;
 use Ray\Di\AbstractModule;
 use Psr\Log\LoggerInterface;
 use Ray\Di\Scope;
@@ -29,6 +30,7 @@ class AppModule extends AbstractModule
                 $_ENV['DB_READ']
             )
         );
+        $this->install(new AuraSessionModule);
         $this->bind(LoggerInterface::class)
             ->toProvider(MonologLoggerProvider::class)
             ->in(Scope::SINGLETON);
