@@ -22,3 +22,11 @@ build:
         before:
             - command: 
                 cp _env .env
+                vendor/bin/composer setup
+    tests:
+        override:
+            -
+                command: 'phpunit --coverage-clover=build/logs/clover.xml'
+                coverage:
+                    file: 'src/*'
+                    format: 'clover'

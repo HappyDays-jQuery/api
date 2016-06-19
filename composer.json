@@ -25,12 +25,13 @@
         }
     },
     "scripts": {
-        "copyenv": [
+        "env": [
             "cp _env .env"
         ],
         "setup": [
             "php bin/create_db.php",
-            "php vendor/bin/phinx migrate -c var/db/phinx.php"
+            "php vendor/bin/phinx migrate -c var/db/phinx.php",
+            "php vendor/bin/phinx migrate -c var/db/phinx.php -e test"
          ],
         "test": [
             "phpmd src text ./phpmd.xml",
