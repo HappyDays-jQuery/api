@@ -5,7 +5,7 @@ php:
 
 before_script:
   - wget https://scrutinizer-ci.com/ocular.phar
-  - php composer.phar install --dev --prefer-source
+  - vendor/bin/composer install --dev --prefer-source
   - vendor/bin/composer env
   - vendor/bin/composer setup
 
