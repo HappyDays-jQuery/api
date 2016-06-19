@@ -19,10 +19,9 @@ build:
     environment:
         mysql: 5.6
     project_setup:
-        before:
-            - command: 
-                cp _env .env
-                vendor/bin/composer setup
+        after_script:
+          - vendor/bin/composer env
+          - vendor/bin/composer setup
     tests:
         override:
             -
