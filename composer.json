@@ -25,6 +25,9 @@
         }
     },
     "scripts": {
+        "copyenv": [
+            "cp _env .env"
+        ],
         "setup": [
             "php bin/create_db.php",
             "php vendor/bin/phinx migrate -c var/db/phinx.php"
