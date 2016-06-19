@@ -25,5 +25,6 @@ class AppModule extends AbstractModule
                 $_ENV['DB_READ']
             )
         );
+        $this->bind(LoggerInterface::class)->toProvider(MonologLoggerProvider::class)->in(Scope::SINGLETON);
     }
 }
