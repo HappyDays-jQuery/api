@@ -22,4 +22,3 @@ build:
         before:
             - command: 
                 cp _env .env
-                vendor/bin/composer setup
