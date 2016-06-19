@@ -1,0 +1,16 @@
+language: php
+php:
+  - '5.5'
+  - '5.6'
+
+before_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php composer.phar install --dev --prefer-source
+  - vendor/bin/composer env
+  - vendor/bin/composer setup
+
+script:
+  - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
+
+after_script:
+  - php ocular.phar code-coverage:upload --access-token=SCRUTINIZER_ACCESS_TOKEN --format=php-clover coverage.clover

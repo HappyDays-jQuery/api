@@ -22,4 +22,3 @@ build:
         after:
             - 'vendor/bin/composer env'
             - 'vendor/bin/composer setup'
-
