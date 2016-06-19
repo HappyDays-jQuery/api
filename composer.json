@@ -29,6 +29,7 @@
             "cp _env .env"
         ],
         "setup": [
+            "cat .env",
             "php bin/create_db.php",
             "php vendor/bin/phinx migrate -c var/db/phinx.php",
             "php vendor/bin/phinx migrate -c var/db/phinx.php -e test"
