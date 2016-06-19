@@ -15,12 +15,13 @@ tools:
         enabled: true
         config:
             ruleset: ./phpcs.xml
-before_commands:
-    - 'vendor/bin/composer env'
-    - 'vendor/bin/composer setup'
 build:
     environment:
         mysql: 5.6
+    dependencies:
+        before:
+            - 'vendor/bin/composer env'
+            - 'vendor/bin/composer setup'
     tests:
         override:
             -
