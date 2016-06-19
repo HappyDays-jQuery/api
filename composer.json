@@ -27,6 +27,11 @@
             "JqueryTokyo\\Api\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "JqueryTokyo\\Api\\": "tests/"
+        }
+    },
     "scripts": {
         "env": [
             "cp _env .env"
