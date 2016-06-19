@@ -22,3 +22,10 @@ build:
         after:
             - 'vendor/bin/composer env'
             - 'vendor/bin/composer setup'
+   tests:
+        override:
+            -
+                command: - 'vendor/bin/phpunit'
+                coverage:
+                    file: 'build/logs/clover.xml'
+                    format: 'php-clover'
