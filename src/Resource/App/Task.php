@@ -16,7 +16,6 @@ class Task extends ResourceObject
     use AuraSqlInject;
     use NowInject;
     use QueryLocatorInject;
-    use SessionInject;
 
     public function __construct(LoggerInterface $logger)
     {
