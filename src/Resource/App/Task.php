@@ -6,13 +6,20 @@ use BEAR\Resource\ResourceObject;
 use Koriym\Now\NowInject;
 use Koriym\QueryLocator\QueryLocatorInject;
 use Ray\AuraSqlModule\AuraSqlInject;
+use Psr\Log\LoggerInterface;
 
 class Task extends ResourceObject
 {
+    private $logger;
     use AuraSqlInject;
     use NowInject;
     use QueryLocatorInject;
 
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
+    
     public function onGet($id = null)
     {
         $this->body = $id ?
@@ -33,6 +40,7 @@ class Task extends ResourceObject
         $id = $this->pdo->lastInsertId('id');
         $this->code = 201;
         $this->headers['Location'] = "/task?id={$id}";
+        $this->logger->info("post {$title}");
 
         return $this;
     }
