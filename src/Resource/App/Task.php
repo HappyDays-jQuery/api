@@ -16,7 +16,8 @@ class Task extends ResourceObject
     public function onGet($id = null)
     {
         $this->body = $id ?
-            $this->pdo->fetchOne($this->query['task/item'], ['id' => $id]) : $this->pdo->fetchAssoc($this->query['task/list']);
+            $this->pdo->fetchOne($this->query['task/item'], ['id' => $id])
+            : $this->pdo->fetchAssoc($this->query['task/list']);
 
         return $this;
     }

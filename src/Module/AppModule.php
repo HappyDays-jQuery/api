@@ -17,6 +17,13 @@ class AppModule extends AbstractModule
             'filepath' => dirname(dirname(__DIR__)) . '/.env',
             'toEnv' => true
         ]);
-        $this->install(new DbAppPackage($_ENV['DB_DSN'], $_ENV['DB_USER'], $_ENV['DB_PASS'], $_ENV['DB_READ']));
+        $this->install(
+            new DbAppPackage(
+                $_ENV['DB_DSN'],
+                $_ENV['DB_USER'],
+                $_ENV['DB_PASS'],
+                $_ENV['DB_READ']
+            )
+        );
     }
 }
