@@ -22,10 +22,10 @@ build:
         after:
             - 'vendor/bin/composer env'
             - 'vendor/bin/composer setup'
-   tests:
+    tests:
         override:
             -
-                command: 'vendor/bin/phpunit'
+                command: 'phpunit --coverage-clover=coverage.clover'
                 coverage:
-                    file: 'build/logs/clover.xml'
-                    format: 'php-clover'
+                    file: 'coverage.clover'
+                    format: 'clover'
