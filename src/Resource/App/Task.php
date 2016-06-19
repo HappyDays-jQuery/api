@@ -3,6 +3,7 @@
 namespace JqueryTokyo\Api\Resource\App;
 
 use BEAR\Resource\ResourceObject;
+use JqueryTokyo\Api\Module\SessionInject;
 use Koriym\Now\NowInject;
 use Koriym\QueryLocator\QueryLocatorInject;
 use Ray\AuraSqlModule\AuraSqlInject;
@@ -15,6 +16,7 @@ class Task extends ResourceObject
     use AuraSqlInject;
     use NowInject;
     use QueryLocatorInject;
+    use SessionInject;
 
     public function __construct(LoggerInterface $logger)
     {
