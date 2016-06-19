@@ -5,6 +5,7 @@ namespace JqueryTokyo\Api\Module;
 use josegonzalez\Dotenv\Loader as Dotenv;
 use Koriym\DbAppPackage\DbAppPackage;
 use Ray\Di\AbstractModule;
+use Psr\Log\LoggerInterface;
 
 class AppModule extends AbstractModule
 {
