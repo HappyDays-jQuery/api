@@ -10,7 +10,8 @@
         "josegonzalez/dotenv": "~2.0",
         "koriym/db-app-package": "1.x-dev",
         "monolog/monolog": "@stable",
-        "aura/session": "@stable"
+        "aura/session": "@stable",
+        "ray/aura-session-module": "@stable"
     },
     "require-dev": {
         "composer/composer": ">=1.0.0-beta1",
