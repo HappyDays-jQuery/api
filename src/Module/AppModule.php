@@ -6,6 +6,9 @@ use josegonzalez\Dotenv\Loader as Dotenv;
 use Koriym\DbAppPackage\DbAppPackage;
 use Ray\Di\AbstractModule;
 use Psr\Log\LoggerInterface;
+use Ray\Di\Scope;
+use JqueryTokyo\Api\Annotation\BenchMark;
+use JqueryTokyo\Api\Interceptor\BenchMarker;
 
 class AppModule extends AbstractModule
 {
@@ -27,5 +30,10 @@ class AppModule extends AbstractModule
             )
         );
         $this->bind(LoggerInterface::class)->toProvider(MonologLoggerProvider::class)->in(Scope::SINGLETON);
+        $this->bindInterceptor(
+            $this->matcher->any(),
+            $this->matcher->annotatedWith(BenchMark::class),
+            [BenchMarker::class]
+        );
     }
 }
