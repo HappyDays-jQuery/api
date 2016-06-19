@@ -21,6 +21,8 @@ build:
     project_setup:
         before:
             - command: 
-                composer copyenv
-                composer setup
+                cp _env .env
+        after:
+            - command:
+                vendor/bin/composer setup
 
